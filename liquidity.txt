@@ -1,0 +1,1 @@
+Write a python program to get the liquidity analysis details of doge usdt and print it on screen 

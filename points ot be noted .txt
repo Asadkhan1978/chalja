@@ -1,0 +1,40 @@
+Liquidty in place or régime detections, weightage, probables while calculating it etc 
+
+
+1. Make it real world and remove hardcoded examples.
+2. Set it to market order
+3. Set the TP to 0.12% and SL to 0.12%
+4. Before entering into a trade it should check if coins is already in trade or not, if it is not trade it not allowed to trade unless and until it finishes its trade it is already in.
+5. Before entering into a trade it should also check if coins are not breaching maximum allowed trade.
+6. After entering a trade the notification system should issue a telegram alert to tradealerts_bot about trade entry with following information:
+
+	Trade Entry Information:
+
+	Name of the coin:
+	Direction:
+	Position Size USDT:
+	Position Size Asset:
+	Average Entry Price: (it can be fetched from binance open order or trade history using API)
+	Leverage:
+	Fee Paid: Fee Paid: (if fee is paid in any other asset (it can be fetched from binance trade history or order history using trade history or order history, and in whatever asset the fee has been paid it 	should be converted into real time price of asset quantity multiply by current value of asset)
+
+7. After exiting a trade the notification system should issue a telegram alert to tradelaerts_bot about trade exit with following information:
+
+	
+	Teade Exit Information:
+
+	Name of the coin:
+	Direction:
+	Position Size USDT:
+	Position Size Asset:
+	Average Exit Price: (It can be fetched from Binance Trade History)
+	Leverage:
+	Realized PNL: (Using API it can be directly fetched from binance trade history of closed trade using trade or or order ID)
+	Fee Paid: (if fee is paid in any other asset (it can be fetched from binance trade history or order history, and in whatever asset the fee has been paid it should be converted into real time price of asset 	quantity multiply by current value of asset)
+	Net Realized PNL: Realized PNL - USDT value of Fee Paid
+	Reason for exit: if trade exit price closes above or near like 0.5% near the tp , it should be termed as TP Hit. If trade exit price is below the equal to fee paid in USDT it should be termed as breakeven 	trade. Net realized PNL is <0 it should be treated as loosing trade. And if SL is hit, it should print it as SL Hit. If Position is liquidated or forced exit, it should be termed as Liquidated.
+	Trade Out Come: if trade exit price closes above or near like 0.5% near the tp , it should be termed as TP Hit. If trade exit price is below the equal to fee paid in USDT it should be termed as breakeven 	trade. Net realized PNL is <0 it should be treated as loosing trade. And if SL is hit, it should print it as SL Hit. If Position is liquidated or forced exit, it should be termed as Liquidated.
+
+
+Each trade entry and exit should be logged in a file for future reference. A robust error and exception handling should mechanism should be in place. 
+
