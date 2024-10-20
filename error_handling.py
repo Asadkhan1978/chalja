@@ -88,4 +88,3 @@ def handle_critical_error(message, error):
     # Send Telegram and Email notifications
     send_critical_error_notification(f"{message}: {error}")
     send_critical_error_email(message, error)
-
