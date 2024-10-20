@@ -1,0 +1,126 @@
+ERROR:root:Error in API call: APIError(code=-4164): Order's notional must be no smaller than 100 (unless you choose reduce only).
+ERROR:root:Error in API call: APIError(code=-4164): Order's notional must be no smaller than 100 (unless you choose reduce only).
+ERROR:root:Error in API call: APIError(code=-4164): Order's notional must be no smaller than 100 (unless you choose reduce only).
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-4316f5cc4c7sm7198805e9.48 - gsmtp')
+ERROR:root:Critical error during trade execution: Failed to execute trade for BTCUSDT
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-4316f5c2d39sm7249665e9.37 - gsmtp')
+ERROR:root:Critical error during trade execution: Notional value is too small: 14.405000000000001 < 100
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-4316f571201sm7647425e9.5 - gsmtp')
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-4316f58c192sm7677175e9.25 - gsmtp')
+ERROR:root:Critical error during trade execution: Notional value is too small: 14.388000000000002 < 100
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-4316f57ff39sm7716205e9.19 - gsmtp')
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-4316f58af18sm7598215e9.24 - gsmtp')
+ERROR:root:Critical error during trade execution: Could not determine the minimum notional value for DOGEUSDT: Traceback (most recent call last):
+  File "/Users/asadfarooqkhan/Desktop/Chalja/main.py", line 24, in execute_trade
+    raise Exception(f"Could not determine the minimum notional value for {symbol}")
+Exception: Could not determine the minimum notional value for DOGEUSDT
+
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-37ee0a47b07sm586723f8f.25 - gsmtp')
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-37ee0a4d532sm585432f8f.46 - gsmtp')
+ERROR:root:Critical error during trade execution: Could not determine the minimum notional value for DOGEUSDT: Traceback (most recent call last):
+  File "/Users/asadfarooqkhan/Desktop/Chalja/main.py", line 24, in execute_trade
+    raise Exception(f"Could not determine the minimum notional value for {symbol}")
+Exception: Could not determine the minimum notional value for DOGEUSDT
+
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-37ee0a37aecsm596837f8f.8 - gsmtp')
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-4316f5c300csm7779965e9.30 - gsmtp')
+ERROR:root:Critical error during trade execution: Could not determine the minimum notional value for DOGEUSDT. Please check if the symbol is valid and supports futures trading.: Traceback (most recent call last):
+  File "/Users/asadfarooqkhan/Desktop/Chalja/main.py", line 27, in execute_trade
+    raise Exception(f"Could not determine the minimum notional value for {symbol}. Please check if the symbol is valid and supports futures trading.")
+Exception: Could not determine the minimum notional value for DOGEUSDT. Please check if the symbol is valid and supports futures trading.
+
+ERROR:root:Error in API call: APIError(code=-1111): Precision is over the maximum defined for this asset.
+ERROR:root:Error in API call: APIError(code=-1111): Precision is over the maximum defined for this asset.
+ERROR:root:Error in API call: APIError(code=-1111): Precision is over the maximum defined for this asset.
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-37ee0b9bc90sm579533f8f.100 - gsmtp')
+ERROR:root:Critical error during trade execution: Failed to execute trade for DOGEUSDT: Traceback (most recent call last):
+  File "/Users/asadfarooqkhan/Desktop/Chalja/main.py", line 65, in execute_trade
+    raise Exception(f"Failed to execute trade for {symbol}")
+Exception: Failed to execute trade for DOGEUSDT
+
+ERROR:root:Error in API call: APIError(code=-1111): Precision is over the maximum defined for this asset.
+ERROR:root:Error in API call: APIError(code=-1111): Precision is over the maximum defined for this asset.
+ERROR:root:Error in API call: APIError(code=-1111): Precision is over the maximum defined for this asset.
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-4316f5c2df7sm7772175e9.33 - gsmtp')
+ERROR:root:Critical error during trade execution: Order placement failed. API response: None: Traceback (most recent call last):
+  File "/Users/asadfarooqkhan/Desktop/Chalja/main.py", line 64, in execute_trade
+    raise Exception(f"Order placement failed. API response: {order}")
+Exception: Order placement failed. API response: None
+
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-4316f57fbe8sm7942955e9.18 - gsmtp')
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-37ee0a37935sm605378f8f.17 - gsmtp')
+ERROR:root:Critical error during trade execution: list index out of range: Traceback (most recent call last):
+  File "/Users/asadfarooqkhan/Desktop/Chalja/main.py", line 52, in execute_trade
+    current_price = round_down(current_price, tick_size)
+  File "/Users/asadfarooqkhan/Desktop/Chalja/main.py", line 8, in round_down
+    precision = len(str(step_size).split('.')[1])  # Get precision from step size (number of decimals)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-4316f57ff39sm8049855e9.19 - gsmtp')
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-37ee0b9405asm593537f8f.87 - gsmtp')
+ERROR:root:Critical error during trade execution: list index out of range: Traceback (most recent call last):
+  File "/Users/asadfarooqkhan/Desktop/Chalja/main.py", line 52, in execute_trade
+    current_price = round_down(current_price, tick_size)
+  File "/Users/asadfarooqkhan/Desktop/Chalja/main.py", line 8, in round_down
+    precision = len(str(step_size).split('.')[1])  # Get precision from step size (number of decimals)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-4316f5cc57esm7865235e9.48 - gsmtp')
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-4316f570a97sm8115475e9.9 - gsmtp')
+ERROR:root:Critical error during trade execution: list index out of range: Traceback (most recent call last):
+  File "/Users/asadfarooqkhan/Desktop/Chalja/main.py", line 52, in execute_trade
+    current_price = round_down(current_price, tick_size)
+  File "/Users/asadfarooqkhan/Desktop/Chalja/main.py", line 8, in round_down
+    precision = len(str(step_size).split('.')[1])  # Get precision from step size (number of decimals)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-4316f5cc401sm7850445e9.43 - gsmtp')
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-37ee0b943e4sm600138f8f.75 - gsmtp')
+ERROR:root:Critical error during trade execution: list index out of range: Traceback (most recent call last):
+  File "/Users/asadfarooqkhan/Desktop/Chalja/main.py", line 59, in execute_trade
+    current_price = round_down(current_price, tick_size)
+  File "/Users/asadfarooqkhan/Desktop/Chalja/main.py", line 10, in round_down
+    precision = len(str(step_size).split('.')[1])  # Get precision from step size (number of decimals)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-4316f57b9fesm8036815e9.12 - gsmtp')
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-37ee0b94066sm604390f8f.71 - gsmtp')
+ERROR:root:Critical error during trade execution: 'minNotional': Traceback (most recent call last):
+  File "/Users/asadfarooqkhan/Desktop/Chalja/main.py", line 44, in execute_trade
+    min_notional_value = float(f['minNotional'])
+                               ~^^^^^^^^^^^^^^^
+KeyError: 'minNotional'
+
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-37ee0a37b7dsm617332f8f.24 - gsmtp')
+ERROR:root:Critical error during trade execution: Could not determine notional value, step size, or tick size for DOGEUSDT. Please check if the symbol is valid and supports futures trading.: Traceback (most recent call last):
+  File "/Users/asadfarooqkhan/Desktop/Chalja/main.py", line 54, in execute_trade
+    raise Exception(f"Could not determine notional value, step size, or tick size for {symbol}. Please check if the symbol is valid and supports futures trading.")
+Exception: Could not determine notional value, step size, or tick size for DOGEUSDT. Please check if the symbol is valid and supports futures trading.
+
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-4316f570d49sm8304345e9.7 - gsmtp')
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-37ee0b94363sm612134f8f.73 - gsmtp')
+ERROR:root:Critical error during trade execution: list index out of range: Traceback (most recent call last):
+  File "/Users/asadfarooqkhan/Desktop/Chalja/main.py", line 51, in execute_trade
+    current_price = round_down(current_price, tick_size)
+  File "/Users/asadfarooqkhan/Desktop/Chalja/main.py", line 31, in round_down
+    precision = len(str(step_size).split('.')[1])  # Get precision from step size (number of decimals)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-4316f5c314bsm8206505e9.32 - gsmtp')
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-4316f57fc36sm8289135e9.18 - gsmtp')
+ERROR:root:Critical error during trade execution: list index out of range: Traceback (most recent call last):
+  File "/Users/asadfarooqkhan/Desktop/Chalja/main.py", line 66, in execute_trade
+    current_price = round_down(current_price, tick_size)
+  File "/Users/asadfarooqkhan/Desktop/Chalja/main.py", line 46, in round_down
+    precision = len(str(step_size).split('.')[1])  # Get precision from step size (number of decimals)
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-37ee0a37e1asm671519f8f.20 - gsmtp')
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-37ee0b944fbsm661109f8f.72 - gsmtp')
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-4316f58aef6sm9002335e9.22 - gsmtp')
