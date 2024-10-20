@@ -17,10 +17,29 @@ def round_to_precision(value, precision):
     """Round the value to the required precision."""
     return float(f"{value:.{precision}f}")
 
-# Function to execute a trade with error handling and symbol-specific notional value check
-def execute_trade(client, symbol, side, investment):
+# Function to fetch USDT balance from the futures wallet
+def get_usdt_futures_balance(client):
+    """Fetch the USDT balance from the futures wallet."""
+    account_info = make_safe_api_call(client.futures_account)
+    if account_info:
+        for asset in account_info['assets']:
+            if asset['asset'] == 'USDT':
+                return float(asset['availableBalance'])
+    raise Exception("Failed to fetch USDT Futures balance.")
+
+# Function to simulate a trade with error handling and symbol-specific notional value check
+def execute_simulated_trade(client, symbol, side, investment):
     try:
-        print(f"Attempting to execute trade: {side} {symbol}")
+        # Fetch available USDT balance in the futures wallet
+        available_usdt = get_usdt_futures_balance(client)
+        print(f"Available USDT balance: {available_usdt} USDT")
+
+        # Automatically adjust the investment to the available balance if it's lower
+        if investment > available_usdt:
+            print(f"Insufficient balance to invest {investment} USDT. Adjusting investment to available: {available_usdt} USDT")
+            investment = available_usdt  # Adjust the investment to the available balance
+
+        print(f"Attempting to simulate trade: {side} {symbol} with {investment} USDT")
 
         # Fetch symbol info for precision and filters
         symbol_info = get_symbol_info(symbol, client)
@@ -40,30 +59,19 @@ def execute_trade(client, symbol, side, investment):
         if quantity < min_qty:
             raise ValueError(f"Quantity {quantity} is below the minimum allowed: {min_qty}")
 
-        # Print order details for debugging
-        print(f"Placing order: symbol={symbol}, side={side}, quantity={quantity}, price={entry_price}")
+        # Simulate the order without placing it
+        print(f"Simulating order: symbol={symbol}, side={side}, quantity={quantity}, price={entry_price}")
+        print(f"Simulation successful: {side} {quantity} {symbol} at {entry_price} USDT")
 
-        # Place the order using a safe API call
-        order = make_safe_api_call(
-            client.futures_create_order,
-            symbol=symbol,
-            side=side,
-            type="MARKET",
-            quantity=quantity
-        )
-
-        if order:
-            message = f"Trade executed: {side} {quantity} {symbol} at {entry_price} USDT"
-            print(f"Success: {message}")
-            send_trade_alert(message)
-        else:
-            raise Exception(f"Order placement failed. API response: {order}")
+        # Simulate trade alert without placing a real order
+        message = f"Simulated trade: {side} {quantity} {symbol} at {entry_price} USDT"
+        send_trade_alert(message)
 
     except Exception as e:
-        error_message = f"Failed to execute trade: {str(e)}"
+        error_message = f"Failed to simulate trade: {str(e)}"
         print(f"Error: {error_message}")
         error_details = traceback.format_exc()
-        handle_critical_error(f"Critical error during trade execution: {str(e)}", error_details)
+        handle_critical_error(f"Critical error during trade simulation: {str(e)}", error_details)
 
 # Main execution function
 if __name__ == "__main__":
@@ -74,13 +82,13 @@ if __name__ == "__main__":
         print("Fetching and displaying wallet balances...")
         fetch_and_display_wallet_balances(client)
 
-        # Execute a sample trade
-        print("Executing trade...")
-        symbol = "DOGEUSDT"
+        # Execute a simulated trade for GMT
+        print("Simulating trade...")
+        symbol = "GMTUSDT"
         side = "BUY"
-        investment = 10  # Example investment of 10 USDT
+        investment = 160  # Example investment in USDT
 
-        execute_trade(client, symbol, side, investment)
+        execute_simulated_trade(client, symbol, side, investment)
 
         print("Sending test email...")
         send_critical_error_email("Test Email", "This is a test error message to verify email functionality.")

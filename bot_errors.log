@@ -124,3 +124,16 @@ IndexError: list index out of range
 ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-37ee0a37e1asm671519f8f.20 - gsmtp')
 ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-37ee0b944fbsm661109f8f.72 - gsmtp')
 ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-4316f58aef6sm9002335e9.22 - gsmtp')
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-4316f570ffcsm9180945e9.2 - gsmtp')
+ERROR:root:Critical error during trade execution: Quantity 0.0 is below the minimum allowed: 1.0: Traceback (most recent call last):
+  File "/Users/asadfarooqkhan/Desktop/Chalja/main.py", line 41, in execute_trade
+    raise ValueError(f"Quantity {quantity} is below the minimum allowed: {min_qty}")
+ValueError: Quantity 0.0 is below the minimum allowed: 1.0
+
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-37ee0a64daasm684976f8f.64 - gsmtp')
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-37ee0b9c6b0sm671436f8f.109 - gsmtp')
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-37ee0b9bf8esm673664f8f.110 - gsmtp')
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-37ee0ba79c8sm681189f8f.117 - gsmtp')
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-37ee0b94131sm682297f8f.81 - gsmtp')
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-37ee0a4ae36sm706792f8f.43 - gsmtp')
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-37ee0b943e4sm700187f8f.75 - gsmtp')
