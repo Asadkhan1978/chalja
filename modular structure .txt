@@ -1,0 +1,342 @@
+can we have a tabular summary based on progress , with green tick mark for completed, yellow for partially completed and red for not implemented along with any suggestions you may have...
+
+Below is the figure of modular structure as proposed by you;
+
+/binance_bot_project
+├── error_handling.py     # Contains error handling and logging functions
+├── api_management.py
+├── wallet_management.py
+├── main.py
+└── other_files.py
+
+let me remind you of the proposed modular structure suggested by you along with key requirement document;
+
+Plan for Code Execution:
+We’ll break down the bot into modular components, each focusing on a specific task. I’ll provide the code for each component step-by-step, so you can easily copy, test, and integrate it into the bot. Each module will interact with Binance's API or handle technical analysis, trade management, or notifications.
+
+Modular Breakdown:
+API Management (Rotator + Rate Limit Handling)
+
+Dynamically rotate between Binance API keys to avoid rate limits.
+Track the number of API requests per key and switch before hitting the rate limit.
+Ensure error handling and retries.
+Wallet Balance Management
+
+Fetch USDT and BNB balances from the spot, futures, and funding wallets.
+Display these balances on the screen and send them to the Telegram notifier bot.
+Technical Analysis Module (RSI + HMA Calculation)
+
+Perform technical analysis using RSI and HMA indicators.
+Generate buy/sell signals based on HMA crossovers and RSI conditions.
+Trade Management System
+
+Manage trade entry, exit, TP, and SL.
+Ensure no more than two trades are active simultaneously.
+Use reduceOnly=True for TP/SL handling.
+Handle margin mode and leverage checks.
+Wallet Management System
+
+Automatically check for drawdowns every 10 minutes.
+Rebalance capital if equity grows or falls below thresholds.
+Adjust reserve_cap and trading_capital based on updated balances.
+Real-Time Alerts (Telegram & Email Notifications)
+
+Send alerts for trade entry/exit, SL/TP hits, drawdowns, and equity growth via Telegram.
+Send hourly summaries via both Telegram and email.
+Hourly Summary Generation
+
+Track key performance metrics without resetting counters.
+Generate hourly cumulative summaries and send them via email and Telegram.
+
+Key requirements:
+
+### RSI Bot tester ###
+
+
+Bot Initialization
+===================
+
+1. After the bot initializes it should print a welcome message to screen "Bot Started"
+
+API Integration 
+=================
+
+1. 10 APIs of Binance perpetual futures will be provided, a dynamic API rotator system should be in place like itertool, to dynamically rotate APIs so as not to hit the Binance Rate Limits. A count mechanism should also be in place to keep track of how much an API has been used per minute so as not to break the rate limit of Binance. Robust error, exception handling and logging system should be built in the API control mechanism. Credential of emails and telegram bot are given below; 
+
+[
+    {'api_key': 'de0baLVpCBc7xwCq3WHv2V10A6WuLpOrWWv2UfeAhQx8Uw67gzs6oXYGY697PB2T', 'api_secret': 'TDTcaKB9HJTZZnfj3SBRuBkrZt0HODxCc1lVUdWjsmdS2mxRuiXw3cWRo3fVL7xL'},
+    {'api_key': '26t5D3HqN8RJ4AgcHyZVW4azR6oWKc8JwNEKd2egJoY4oQx5BFh8xrQZOKeUqnjh', 'api_secret': 'RVnc5BpkAbvPUYWleLIqirBA4GKCaUey4PtHSEf8F8KOyl5MtpBdpokSRwdrr2vn'},
+    {'api_key': 'N4bc8GJirpmDz7nStgnMSfMXDJeSLT14NNwY4IdQITcssnwLjovXORaVvqj3kJGJ', 'api_secret': 'U2JCvGxqG3lie0sPw7lwNlAmwjTUujL2C4WAQ7kRPndE5tEVu5CoCCO44UV9v3ko'},
+    {'api_key': 'dja8XZ1JePZgVtWfMm8vuROFqsEOUtWJi4yCItUCc3Yh4QRiVZCCRKnBooHqYSjD', 'api_secret': 'XzPLzfy8TrLrHE89QLdhNvH4yBSFaX1cTnGaHPRl0JgF4M1kbzAiSrREAT7omjFM'},
+    {'api_key': 'FU4toz09SttqMZDj7jl8ZIqoC1PMcpPELdH9i7d89fux7nhO7hjG9AORp3DJpa3V', 'api_secret': 'WC3pfe03BeWshfIXsbbeireEDTaBmwzAujlXN8hhhVUm5mR1fhThRZMRB8lbbIYS'},
+    {'api_key': 'eCafNCA1l0ho2WJyWWHSHHAfugGU5Agg4t9VDGI8nbXpt4tIiPRuyaNXRPV7Fcux', 'api_secret': 'kkqYhovf9prO0IPxFI1cYUG8UGiqE6ftc7ypnxGfURwcGXSXPwOTSdhy8kFJkDZm'},
+    {'api_key': 'UqgmsNC59dAJ2P2clsMZ3aIj2FxqEY9VtDPleKznTmmMjQJMt6qXD8oauh0JfleZ', 'api_secret': 'KDzMYwtwjVNT1eZHquTkKgQTTYen4OpvoZfwRoCvvtPSvaxuD6MaxOcow5XqMrDw'},
+    {'api_key': 'zjaq003TtnHrHA6ciRFbq1s2NSMzMtOrJNhpd5yibplFbSU8obUwSME9a1k9g4vb', 'api_secret': 'rhmLA4meRfqRVxibP79Oud7i76v7aK1XmcMhpnP7ZiG96Np0s12qMqSOxWw6B9Y4'},
+    {'api_key': 'B8v8T4ynN9D3lcQKsS75WrflCmgX4k3cNElCWAeGSOr1yTPzxvGCCZlfSK1ghLna', 'api_secret': 'F6dhx42c95eEPDBabEWQtlFWVoO9qLPDB7etdRRxuRD4de4G4A2lpl6KUzcfygpO'},
+    {'api_key': 'Q27KjQCqESwO8dc2QwNnnVhOgd5LJBoSTCz8yx20zx0hnSbhDoMfaKpxy8tgaiFB', 'api_secret': '5nTNCXVQHW3eGvby3D1XrcUiG40IbMnSVHpVVhYW7xCn0pf2oHhu5Bh9xRblBl95'}
+]
+
+Telegram and email Credentials 
+==============================
+
+1. Two Telegram Bot and Two emails will be provided. One telegram bot is known as tradealerts_bot and the other bot is known as notifier_bot. The trade related information regarding trade entry and trade exit should be sent to tradelerts_bot. While other critical information like equity drawdown beyond a threshold, an equity growth beyond a threshold should be sent to email addresses. Also the key performance summaries and other key metrics along with critical information should be sent to email address and notifier_bot. Robust error and exception handling and logging system should be built in the telegram and email control mechanism. Credential of emails and telegram bot are given below;
+
+
+1. Email Credentials
+
+from_email = "binancetradingbot6@gmail.com"
+app_password = "irnt ezcv smyb btba"
+to_emails = ["asad.farooq@gmail.com"] , [asadfarooqkhan1978@icloud.com]
+ 2. Telegram Credentials
+ telegram_bot_token_entry_exit = '7443797598:AAH5Ou3HDYHYQntUbfZyeQ0uIsT3GfKCxsc'
+telegram_bot_token_summary = '7745017594:AAGRQfXWEQGpGlEpJfOIcDyvNE22eIxccgo'
+telegram_chat_id = '6219509995'
+
+User Wallets Updated Balance
+============================
+
+1. After the initialization of bot, the bot should fetch real time USDT Asset balance of user spot wallet	and USDT asset balance of user futures account, also it should fetch real time USDT asset balance of USDT Asset of user funding account. The balances should be shown on the screen and sent to notifier_bot. 
+
+
+2. The bot should also fetch real time BNB Asset balance of user spot wallet	and BNB asset balance of user futures account, also it should fetch real time BNB asset balance of USDT Asset of user funding account. The balances should be shown on the screen and sent to notifier_bot. 
+
+List of coins to be traded 
+==========================
+
+1. Following is the list of preferred and selected coins to be traded and same list will be used through out the bot
+
+[DOGEUSDT, XRPUSDT, ADAUSDT, EOSUSDT, CVXUSDT, CFXUSDT, CRVUSDT, 
+
+
+No Simultaneous trading allowed and Max Allowed trades
+======================================================
+
+1. The bot should keep track of all trading coins, and at any given time irrespective of funds no more than two coins should trade simultaneously. That means only two trades are allowed even if funds are available. Once a coin finishes its trade it is already trading, it can re-enter the trade based on signal issued. It should be known as max_allowed_trades. 
+
+
+Margin Reserve and Trading Capital. 
+===================================
+
+1. The entire USDT balance of user future wallet should be known as allocated_capital. Out of allocated_capital 30% should be kept as reserve capital and should not be used for any trading, it should be used for margin maintenance and account maintenance and should act as buffer, this should be known as marin_reserve. Remaining 70% can be used for trading purposes. It should be known as trading_capital, and leverage can only be applied to trading_capital. 
+
+Max trade value per trade
+==========================
+
+1. Max trade value or max_trade_value should not exceed 10 dollars at any time irrespective of funds available in the wallet, this is separate from margin_reserve. In case if not enough funds are available a notification on the screen should be shown "insufficient balance" also same notification should be sent to notifier_bot. 
+
+Margin Mode and Leverage setting
+=================================
+
+1. The bot should check the margin mode before entering any trade, if it is not set as Cross it should set it as cross, but if it is already set as cross the bot should not change it. Same margin will be used throughout all the trades during the running of bot. 
+
+2. The bot should check the leverage before entering any trade, if it is not set as 1 or 1x it should set it as 1 or 1x, but if it is already set as 1 or 1x the bot should not change it. Same leverage will be used throughout all the trades during the running of bot. 
+
+wallet management System (wallet_management_system)
+===================================================
+
+1. After every ten minutes the bot should check the user USDT future wallet balance and if a drawdown happens due to fees or trading loss, it should rebalance it self and allocate capital accordingly. Suppose if an equity draw down happens and available funds are 25 USDT in user future wallet balance, a notification to screen and notifier_bot should be issued about the drawdown along with amount of drawn down. Then it should equally distribute the amount available after deducting the margin_reserve from allocated_capital and use the remaining trading_capital for trading which after drawdown and deduction of margin_reserve becomes 17.5 USDT, it should equally distribute the amount amongst the max_allowed_trades, the amount becomes 8.75 USDT per trade. The threshold for drawdown should be a fixed value of 10USDT in user future wallet balance. The bot should rebalance its margin_reserve and trading_capital accordingly (USDT Asset balance in user future wallet and bot's books). 
+
+2. In case of already on going trades, if a draw down happens, the ongoing trades should continue as usual but wallet_management_should check the amount available for trading purposes and it should allocate proportionate amount amongst the new trades.  
+
+3. In case of equity growth due to profitable trades. If an equity growth is detected while wallet_management_system checks it for drawdown or equity, (after every 10 minutes), it should issue a notification to screen and notifier bot that an equity growth has happened along with amount of equity growth on top of allotted_capital. Suppose if allocated_capital was 50 USDT and a threshold of 10 USDT is set for equity, growth if equity grows by 10 USDT, the bot should treat is as equity growth of 10 dollars as new balance has become 60 USDT while allocated capital was 50 USDT. The bot should rebalance its margin_reserve and trading_capital accordingly (USDT Asset balance in user future wallet and bot's books. 
+
+Technical Analysis 
+====================
+
+RSI & HMA 
+
+1. Buy Signal Logic 
+
+
+Buy Signal:
+
+a. HMA(14) crosses above HMA(21) → Bullish signal.
+b. RSI(5) is 50 (below 65, confirming no overbought condition) → Buy signal triggered.
+
+2. Sell Signal:
+
+a. HMA(14) crosses below HMA(21) → Bearish signal.
+b. RSI(5) is 45 (above 35, confirming no oversold condition) → Sell signal triggered.
+
+3. Sell (Short) Signal:
+
+a. Condition 1 (HMA Crossover): HMA(14) crosses below HMA(21), indicating bearish momentum.
+b. Condition 2 (RSI Filter): RSI(5) > 35 (meaning the market is not yet oversold and there’s potential for further downside).
+
+
+4. Short Sell Exit Signal:
+
+a. HMA Crossover: Fast HMA (HMA(14)) crosses back above the slower HMA (HMA(21)). 
+b. RSI Confirmation: RSI(5) drops below 35.
+
+5. Single Generation:
+
+# Function to generate a signal to capture a full 0.25% move without checking minimal price move
+def generate_trade_signal(current_price, rsi_value, ema_short, ema_long, signal_buffer):
+    # Buy Signal (EMA crossover up + RSI confirmation)
+    if ema_short > ema_long and rsi_value > 35:
+        if signal_buffer != "BUY SIGNAL":
+            return "BUY SIGNAL"
+
+    # Sell Signal (EMA crossover down + RSI confirmation)
+    elif ema_short < ema_long and rsi_value < 65:
+        if signal_buffer != "SELL SIGNAL":
+            return "SELL SIGNAL"
+
+    # No signal if conditions are not met
+    return None
+
+import yfinance as yf
+import pandas as pd
+import ta
+
+# Fetch historical data from Yahoo Finance (you can replace this with any data provider)
+def fetch_data(symbol, period='1mo', interval='1d'):
+    data = yf.download(symbol, period=period, interval=interval)
+    return data
+
+# Calculate RSI using the ta library
+def calculate_rsi(data, period=5):
+    rsi = ta.momentum.RSIIndicator(data['Close'], window=period)
+    return rsi.rsi()
+
+# Calculate Hull Moving Average (HMA)
+def calculate_hma(data, period=14):
+    # Hull Moving Average (HMA) is a weighted moving average that uses the WMA twice, manually computed.
+    half_period = int(period / 2)
+    sqrt_period = int(period ** 0.5)
+    
+    # WMA for half period and full period
+    wma_half = ta.trend.WMAIndicator(data['Close'], window=half_period).wma()
+    wma_full = ta.trend.WMAIndicator(data['Close'], window=period).wma()
+    
+    # HMA calculation
+    hma = ta.trend.WMAIndicator(2 * wma_half - wma_full, window=sqrt_period).wma()
+    
+    return hma
+
+# Generate trade signals based on HMA and RSI
+
+def generate_trade_signals(data):
+    signals = pd.DataFrame(index=data.index)
+    
+    # Calculate the RSI and HMA values
+    signals['RSI'] = calculate_rsi(data, period=5)
+    signals['HMA_short'] = calculate_hma(data, period=14)
+    signals['HMA_long'] = calculate_hma(data, period=21)
+    
+    # Initial signal column
+    signals['Signal'] = None
+    
+    # Generate Buy signal
+    signals.loc[(signals['HMA_short'] > signals['HMA_long']) & (signals['RSI'] < 65), 'Signal'] = 'BUY SIGNAL'
+    
+    # Generate Exit (Long) signal
+    signals.loc[(signals['HMA_short'] < signals['HMA_long']) | (signals['RSI'] > 65), 'Signal'] = 'EXIT LONG SIGNAL'
+    
+    # Generate Sell (Short) signal
+    signals.loc[(signals['HMA_short'] < signals['HMA_long']) & (signals['RSI'] > 35), 'Signal'] = 'SELL SHORT SIGNAL'
+    
+    # Generate Exit (Short) signal
+    signals.loc[(signals['HMA_short'] > signals['HMA_long']) | (signals['RSI'] < 35), 'Signal'] = 'EXIT SHORT SIGNAL'
+    
+    return signals
+
+# Fetch data and generate trade signals
+symbol = 'AAPL'  # Example stock (Apple), you can replace this with any symbol (e.g., 'BTC-USD' for Bitcoin)
+data = fetch_data(symbol, period='3mo', interval='1d')  # Fetch 3 months of daily data
+
+# Generate signals based on the data
+trade_signals = generate_trade_signals(data)
+
+# Show the last few signals
+print(trade_signals[['Close', 'HMA_short', 'HMA_long', 'RSI', 'Signal']].tail())
+
+
+Trade Management System:
+========================
+
+1. The trade management system should place order about which coin to trade based on signal strength received from technical analysis and which direction to trade long or short. 
+
+2. Before entering a trade the bot should use getsymbol info as per the binance rules so as not to violate any rule.
+
+3. The bot should also check the price precision using BINANCE API guidelines (Tick Size) for correct placement of decimal and correct price precision to prevent errors. An error log should be maintained. 
+
+4. The bot should also check the trade precision using Binance API Guidelines (Step Size) for correct placement of trade quantity to prevent errors or rejected errors. An error log should be maintained. 
+
+5. The bot should also check the notational value of asset using Binance API guidelines for correct order placement of trade quantity to prevent errors or rejected orders. An error log should be maintained. 
+
+6. The price of both TP and SL should be calculated dynamically based on average entry price (can be taken from binance using API either using trade ID or order ID). 
+
+7. The quantity should be dynamically calculated using (average entry price * leverage)/ max_trade_value also keeping in view the tick size, step size and notational value. 
+
+8. The bot code should not have any place holders and should not use any examples but should use real world scenarios as this is going to be tested live. 
+
+9. Each trade entry and exit should be logged in a file for future reference. A robust error and exception handling should mechanism should be in place. 
+
+10. Make it real world and remove hardcoded examples.
+
+Order Placement Parameters
+==========================
+
+1. Set it to market order
+
+2. Set the TP to 0.12% and SL to 0.12% based on average entry price. 
+
+3. Before entering into a trade it should check if coins is already in trade or not, if it is not trade it not allowed to trade unless and until it finishes its trade it is already in.
+
+4. Before entering into a trade it should also check if coins are not breaching maximum allowed trade.
+
+5. Since Binance Perpetual futures has removed OCO from its order placement, a dynamic weblistner should be in place to listen to order placement (entries) and order exits. It should only give trade related information no other information on screen is required. For long if SL is hit, with a small buffer of 300 it should close the TP automatically. If TP is hit, with a small buffer of 300 ms it should close the SL automatically and is should notify on screen and telegram notifier_bot as coin name, TP or SL hit (which ever is hit), closed TP or SL (after closing down the TP or SL depending on the condition). It is known as OTOCO for API users instead of OCO. 
+
+
+6. After entering a trade the notification system should issue a telegram alert to tradealerts_bot about trade entry with following information:
+
+	a. Trade Entry Information:
+
+	1. Name of the coin: (it can be fetched from binance open order or trade history using API)
+	
+	2. Direction: (it can be fetched from binance open order or trade history using API)
+	
+	3. Position Size USDT: (it can be fetched from binance open order or trade history using API)
+	
+	4. Position Size Asset: (it can be fetched from binance open order or trade history using API)
+	
+	5. Average Entry Price: (it can be fetched from binance open order or trade history using API)
+	
+	6. Leverage: (it can be fetched from binance open order or trade history using API)
+	
+	7. Fee Paid: Fee Paid: (if fee is paid in any other asset (it can be fetched from binance trade history or order history using trade history or order 	history, and in whatever asset the fee has been paid it 	should be converted into real time price of asset quantity multiply by current value of 	asset)
+
+7. After exiting a trade the notification system should issue a telegram alert to tradelaerts_bot about trade exit with following information:
+
+	
+	a. Trade Exit Information:
+
+	1. Name of the coin: (it can be fetched from binance open order or trade history using API)
+	
+	2. Direction: (it can be fetched from binance open order or trade history using API)
+	
+	3. Position Size USDT: (it can be fetched from binance open order or trade history using API)
+	
+	4. Position Size Asset: (it can be fetched from binance open order or trade history using API)
+	
+	5. Average Exit Price: (It can be fetched from Binance Trade History)
+	
+	6. Leverage: (it can be fetched from binance open order or trade history using API)
+	
+	7.Realized PNL: (Using API it can be directly fetched from binance trade history of closed trade using trade or or order ID)
+	
+	8. Fee Paid: (if fee is paid in any other asset (it can be fetched from binance trade history or order history, and in whatever asset the fee has been 	paid 	it should be converted into real time price of asset 	quantity multiply by current value of asset)
+	
+	9. Net Realized PNL: Realized PNL - USDT value of Fee Paid
+	
+	10.Reason for exit: if trade exit price closes above or near like 0.5% near the tp , it should be termed as TP Hit. If trade exit price is below the 	equal to fee paid in USDT it should be termed as breakeven trade. Net realized PNL is <0 it should be treated as loosing trade. And if SL is hit, if it 	it as SL Hit. If Position is liquidated or forced exit, it should be termed as Liquidated.
+	
+	11, Trade Out Come: if trade exit price closes above or near like 0.5% near the tp , it should be termed as TP Hit - Winning Trade. If trade exit price 	is the equal to fee paid in USDT it should be termed as breakeven 	trade. Net realized PNL is <0 it should be treated as loosing trade. And if SL is 	hit, it should print it as SL Hit. If Position is liquidated or forced exit, it should be termed as Liquidated.
+
+
+Summary Management System:
+
+
+1. An hourly summary should be sent to email address and notifier_bot for trade performance, key metrics and other performance metrics. The counter should not be set to zero till the bot is running.  You can advise on what summaries can be generated easily and provide real insight. 

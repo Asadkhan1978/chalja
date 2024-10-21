@@ -1,0 +1,114 @@
+ERROR:root:Critical error during trade simulation: 'minNotional': Traceback (most recent call last):
+  File "/Users/asadfarooqkhan/Desktop/Chalja/main.py", line 42, in execute_simulated_trade
+    min_notional = float(symbol_info['filters'][3]['minNotional'])  # Minimum notional value for this symbol
+                         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+KeyError: 'minNotional'
+
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-37ee0a48564sm748933f8f.29 - gsmtp')
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-431605f81a2sm77266205e9.0 - gsmtp')
+ERROR:root:Critical error during trade simulation: 'minNotional': Traceback (most recent call last):
+  File "/Users/asadfarooqkhan/Desktop/Chalja/main.py", line 42, in execute_simulated_trade
+    min_notional = float(symbol_info['filters'][3]['minNotional'])  # Minimum notional value for this symbol
+                         ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+KeyError: 'minNotional'
+
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-431606c09c9sm59909445e9.1 - gsmtp')
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-4316f5cc1e2sm9958405e9.42 - gsmtp')
+ERROR:root:Critical error during trade simulation: 'minNotional': Traceback (most recent call last):
+  File "/Users/asadfarooqkhan/Desktop/Chalja/main.py", line 46, in execute_simulated_trade
+    symbol_info, min_notional, step_size = get_symbol_info(symbol, client)
+                                           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/Users/asadfarooqkhan/Desktop/Chalja/main.py", line 15, in get_symbol_info
+    min_notional = float(f['minNotional'])
+                         ~^^^^^^^^^^^^^^^
+KeyError: 'minNotional'
+
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-4316f570f7esm10180955e9.10 - gsmtp')
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-4316f57f89fsm10102115e9.16 - gsmtp')
+ERROR:root:Critical error during trade simulation: 'minNotional': Traceback (most recent call last):
+  File "/Users/asadfarooqkhan/Desktop/Chalja/main.py", line 46, in execute_simulated_trade
+    symbol_info, min_notional, step_size = get_symbol_info(symbol, client)
+                                           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/Users/asadfarooqkhan/Desktop/Chalja/main.py", line 15, in get_symbol_info
+    min_notional = float(f['minNotional'])
+                         ~^^^^^^^^^^^^^^^
+KeyError: 'minNotional'
+
+ERROR:root:Critical error during trade simulation: 'minNotional': Traceback (most recent call last):
+  File "/Users/asadfarooqkhan/Desktop/Chalja/main.py", line 46, in execute_simulated_trade
+    symbol_info, min_notional, step_size = get_symbol_info(symbol, client)
+                                           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/Users/asadfarooqkhan/Desktop/Chalja/main.py", line 15, in get_symbol_info
+    min_notional = float(f['minNotional'])
+                         ~^^^^^^^^^^^^^^^
+KeyError: 'minNotional'
+
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-4316f570a97sm10261695e9.9 - gsmtp')
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-37ee0b94405sm751807f8f.88 - gsmtp')
+ERROR:root:Critical error during trade execution: Quantity 0.0 is below the minimum allowed: 1.0: Traceback (most recent call last):
+  File "/Users/asadfarooqkhan/Desktop/Chalja/main.py", line 64, in execute_trade
+    raise ValueError(f"Quantity {quantity} is below the minimum allowed: {min_qty}")
+ValueError: Quantity 0.0 is below the minimum allowed: 1.0
+
+ERROR:root:Critical error during trade execution: Quantity 0.0 is below the minimum allowed: 1.0: Traceback (most recent call last):
+  File "/Users/asadfarooqkhan/Desktop/Chalja/main.py", line 64, in execute_trade
+    raise ValueError(f"Quantity {quantity} is below the minimum allowed: {min_qty}")
+ValueError: Quantity 0.0 is below the minimum allowed: 1.0
+
+ERROR:root:Unexpected error in main execution: Traceback (most recent call last):
+  File "/Users/asadfarooqkhan/Desktop/Chalja/main.py", line 84, in <module>
+    client, _ = get_binance_client()
+                ^^^^^^^^^^^^^^^^^^
+NameError: name 'get_binance_client' is not defined
+
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-37ee0a37958sm2906283f8f.15 - gsmtp')
+ERROR:root:Unexpected error in main execution: Traceback (most recent call last):
+  File "/Users/asadfarooqkhan/Desktop/Chalja/main.py", line 84, in <module>
+    client, _ = get_binance_client()
+                ^^^^^^^^^^^^^^^^^^
+NameError: name 'get_binance_client' is not defined
+
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials ffacd0b85a97d-37ee0b9bcc8sm2884717f8f.107 - gsmtp')
+ERROR:root:Unexpected error in main execution: Traceback (most recent call last):
+  File "/Users/asadfarooqkhan/Desktop/Chalja/main.py", line 87, in <module>
+    client, _ = get_binance_client()
+                ^^^^^^^^^^^^^^^^^^
+NameError: name 'get_binance_client' is not defined
+
+ERROR:root:Failed to send email notification: (535, b'5.7.8 Username and Password not accepted. For more information, go to\n5.7.8  https://support.google.com/mail/?p=BadCredentials 5b1f17b1804b1-4316f57f89fsm38928035e9.16 - gsmtp')
+ERROR:root:Error with API Key 26t5D3HqN8RJ4AgcHyZVW4azR6oWKc8JwNEKd2egJoY4oQx5BFh8xrQZOKeUqnjh: Client.futures_account() takes 1 positional argument but 2 were given
+ERROR:root:Error with API Key N4bc8GJirpmDz7nStgnMSfMXDJeSLT14NNwY4IdQITcssnwLjovXORaVvqj3kJGJ: Client.futures_account() takes 1 positional argument but 2 were given
+ERROR:root:Error with API Key dja8XZ1JePZgVtWfMm8vuROFqsEOUtWJi4yCItUCc3Yh4QRiVZCCRKnBooHqYSjD: Client.futures_account() takes 1 positional argument but 2 were given
+ERROR:root:Error with API Key FU4toz09SttqMZDj7jl8ZIqoC1PMcpPELdH9i7d89fux7nhO7hjG9AORp3DJpa3V: Client.get_asset_balance() got multiple values for argument 'asset'
+ERROR:root:Error with API Key eCafNCA1l0ho2WJyWWHSHHAfugGU5Agg4t9VDGI8nbXpt4tIiPRuyaNXRPV7Fcux: Client.get_asset_balance() got multiple values for argument 'asset'
+ERROR:root:Error with API Key UqgmsNC59dAJ2P2clsMZ3aIj2FxqEY9VtDPleKznTmmMjQJMt6qXD8oauh0JfleZ: Client.get_asset_balance() got multiple values for argument 'asset'
+ERROR:root:Error with API Key zjaq003TtnHrHA6ciRFbq1s2NSMzMtOrJNhpd5yibplFbSU8obUwSME9a1k9g4vb: Client.get_asset_balance() got multiple values for argument 'asset'
+ERROR:root:Error with API Key B8v8T4ynN9D3lcQKsS75WrflCmgX4k3cNElCWAeGSOr1yTPzxvGCCZlfSK1ghLna: Client.get_asset_balance() got multiple values for argument 'asset'
+ERROR:root:Error with API Key Q27KjQCqESwO8dc2QwNnnVhOgd5LJBoSTCz8yx20zx0hnSbhDoMfaKpxy8tgaiFB: Client.get_asset_balance() got multiple values for argument 'asset'
+ERROR:root:Error with API Key de0baLVpCBc7xwCq3WHv2V10A6WuLpOrWWv2UfeAhQx8Uw67gzs6oXYGY697PB2T: Client.futures_account() takes 1 positional argument but 2 were given
+ERROR:root:Error with API Key 26t5D3HqN8RJ4AgcHyZVW4azR6oWKc8JwNEKd2egJoY4oQx5BFh8xrQZOKeUqnjh: Client.futures_account() takes 1 positional argument but 2 were given
+ERROR:root:Error with API Key N4bc8GJirpmDz7nStgnMSfMXDJeSLT14NNwY4IdQITcssnwLjovXORaVvqj3kJGJ: Client.futures_account() takes 1 positional argument but 2 were given
+ERROR:root:Critical error during wallet management: Traceback (most recent call last):
+  File "/Users/asadfarooqkhan/Desktop/Chalja/wallet_management.py", line 52, in manage_wallet
+    if futures_balance < DRAW_DOWN_THRESHOLD:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
+ERROR:root:Error with API Key 26t5D3HqN8RJ4AgcHyZVW4azR6oWKc8JwNEKd2egJoY4oQx5BFh8xrQZOKeUqnjh: Client.futures_account() takes 1 positional argument but 2 were given
+ERROR:root:Error with API Key N4bc8GJirpmDz7nStgnMSfMXDJeSLT14NNwY4IdQITcssnwLjovXORaVvqj3kJGJ: Client.futures_account() takes 1 positional argument but 2 were given
+ERROR:root:Error with API Key dja8XZ1JePZgVtWfMm8vuROFqsEOUtWJi4yCItUCc3Yh4QRiVZCCRKnBooHqYSjD: Client.futures_account() takes 1 positional argument but 2 were given
+ERROR:root:Error with API Key FU4toz09SttqMZDj7jl8ZIqoC1PMcpPELdH9i7d89fux7nhO7hjG9AORp3DJpa3V: Client.get_asset_balance() got multiple values for argument 'asset'
+ERROR:root:Error with API Key eCafNCA1l0ho2WJyWWHSHHAfugGU5Agg4t9VDGI8nbXpt4tIiPRuyaNXRPV7Fcux: Client.get_asset_balance() got multiple values for argument 'asset'
+ERROR:root:Error with API Key UqgmsNC59dAJ2P2clsMZ3aIj2FxqEY9VtDPleKznTmmMjQJMt6qXD8oauh0JfleZ: Client.get_asset_balance() got multiple values for argument 'asset'
+ERROR:root:Error with API Key zjaq003TtnHrHA6ciRFbq1s2NSMzMtOrJNhpd5yibplFbSU8obUwSME9a1k9g4vb: Client.get_asset_balance() got multiple values for argument 'asset'
+ERROR:root:Error with API Key B8v8T4ynN9D3lcQKsS75WrflCmgX4k3cNElCWAeGSOr1yTPzxvGCCZlfSK1ghLna: Client.get_asset_balance() got multiple values for argument 'asset'
+ERROR:root:Error with API Key Q27KjQCqESwO8dc2QwNnnVhOgd5LJBoSTCz8yx20zx0hnSbhDoMfaKpxy8tgaiFB: Client.get_asset_balance() got multiple values for argument 'asset'
+ERROR:root:Error with API Key de0baLVpCBc7xwCq3WHv2V10A6WuLpOrWWv2UfeAhQx8Uw67gzs6oXYGY697PB2T: Client.futures_account() takes 1 positional argument but 2 were given
+ERROR:root:Error with API Key 26t5D3HqN8RJ4AgcHyZVW4azR6oWKc8JwNEKd2egJoY4oQx5BFh8xrQZOKeUqnjh: Client.futures_account() takes 1 positional argument but 2 were given
+ERROR:root:Error with API Key N4bc8GJirpmDz7nStgnMSfMXDJeSLT14NNwY4IdQITcssnwLjovXORaVvqj3kJGJ: Client.futures_account() takes 1 positional argument but 2 were given
+ERROR:root:Critical error during wallet management: Traceback (most recent call last):
+  File "/Users/asadfarooqkhan/Desktop/Chalja/wallet_management.py", line 52, in manage_wallet
+    if futures_balance < DRAW_DOWN_THRESHOLD:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: '<' not supported between instances of 'NoneType' and 'int'
+
