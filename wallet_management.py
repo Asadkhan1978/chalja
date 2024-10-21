@@ -71,9 +71,13 @@ def manage_wallet(client):
         if balance_change < 0:
             print(f"Drawdown detected! Balance decreased by {-balance_change:.2f} USDT.")
             send_critical_error_notification(f"Drawdown detected: Balance decreased by {-balance_change:.2f} USDT. Current balance: {futures_balance} USDT")
+            initial_balance = futures_balance  # Update balance after drawdown
+
         elif balance_change > 0:
             print(f"Equity growth detected! Balance increased by {balance_change:.2f} USDT.")
             send_critical_error_notification(f"Equity growth detected: Balance increased by {balance_change:.2f} USDT. Current balance: {futures_balance} USDT")
+            initial_balance = futures_balance  # Update balance after equity growth
+
         else:
             print(f"No significant balance change detected: {futures_balance} USDT.")
 
@@ -102,3 +106,5 @@ def periodic_wallet_check(client, interval=60):
         except Exception as e:
             print(f"Error during wallet management: {str(e)}")
         time.sleep(interval)
+
+# End of file
