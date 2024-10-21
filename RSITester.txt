@@ -53,7 +53,7 @@ List of coins to be traded
 
 1. Following is the list of preferred and selected coins to be traded and same list will be used through out the bot
 
-[DOGEUSDT, XRPUSDT, ADAUSDT, EOSUSDT, CVXUSDT, CFXUSDT, CRVUSDT, 
+[DOGEUSDT, XRPUSDT, ADAUSDT, EOSUSDT, CVXUSDT, CFXUSDT, CRVUSDT, ]
 
 
 No Simultaneous trading allowed and Max Allowed trades
