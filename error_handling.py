@@ -9,8 +9,8 @@ from email.mime.multipart import MIMEMultipart
 logging.basicConfig(filename='bot_errors.log', level=logging.ERROR)
 
 # Email credentials
-from_email = "binancetradingbot6@gmail.com"
-app_password = "irnt ezcv smyb btba"
+from_email = "binancehft@gmail.com"
+app_password = "lsff hagf vpcv xltm"
 to_emails = ["asad.farooq@gmail.com", "asadfarooqkhan1978@icloud.com"]
 
 # Telegram credentials for notifier_bot (critical alerts)
